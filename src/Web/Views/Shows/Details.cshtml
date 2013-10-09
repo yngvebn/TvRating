@@ -1,0 +1,16 @@
+﻿@model Web.Models.TvShowViewModel
+
+@{
+    ViewBag.Title = "Details - "+Model.Name;
+}
+<div class="row">
+    <h2>@Html.DisplayFor(model => model.Name)</h2>
+    <span>@Html.Partial("_Rating")</span>
+    <p>@Html.DisplayFor(model => model.Description)</p>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
+
+

@@ -1,0 +1,12 @@
+﻿@model Web.Models.TvShowViewModel
+
+@using (Html.BeginForm("Rating", "Shows"))
+{
+
+    for (int i = 1; i <= 10; i++)
+    {
+        <button type="submit" value="@i" name="rating" class="star @(string.Format("{0}", i <= Model.AverageRating ? "active" : "inactive")) @(string.Format("{0}", i == Model.RatingForUser(User.Identity.Name) ? "user_rating" : ""))"></button>
+    }
+    <span> (@Model.Ratings.Count() votes)</span>
+    @Html.HiddenFor(model => model.Id)
+}
